@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    <!--Required meta tags (characters and responsive viewport)-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <title>Etch-A-Sketch</title>
+
+    <!--Link to stylesheet and fonts-->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">       
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <!--Font awesome link-->
+    <script src="https://kit.fontawesome.com/93c0928b27.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+    <h1 class="title">Etch-A-Sketch</h1>
+
+    <div class="main-container">
+        <div class="options-container">
+            <div class="color-container">
+                <h2>Choose your color</h2>
+                <div id="color-picker">
+                    <input type="color" id="color_choice">
+                </div>
+            
+                <button class="color_black">Black</button>
+                <button class="color_multi">Multi-Color</button>
+            </div>
+           
+            <div class="clear-container">
+                <i class="fa-solid fa-eraser fa-2x"></i>
+                <button id="eraser">Eraser</button>
+                <i class="fa-solid fa-trash-can fa-2x"></i>
+                <button id="clear">Clear</button>
+            </div>
+
+            <div class="grid_change">
+                <h2 class="grid_title">Grid Size</h2>
+                <div class="grid-container">
+                    <button>5 X 5</button>
+                    <button>8 X 8</button>
+                    <button>10 X 10</button>
+                    <button>20 X 20</button>
+                    <button>30 X 30</button>
+                    <button>40 X 40</button>
+                    <button>50 X 50</button>
+                    <button>64 X 64</button>
+
+                </div>
+            </div>
+            
+        </div>
+        
+      
+    
+        <div id="canvas">Canvas Space</div>
+    
+    </div>
+   
+</body>
+
+
+
+</html>

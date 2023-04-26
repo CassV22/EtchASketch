@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: 'Shantell Sans', cursive;;
+}
+
+.title {
+    text-align: center;
+    font-size: 55px;
+    margin-top: 15px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.main-container {
+    display: flex;
+    gap: 100px;
+    width: 100%;
+    justify-content: center;
+    flex: 1;
+}
+
+.color-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    width: 300px;
+    margin-left: 80px;
+}
+
+.color-container button {
+    margin-left: 33%;
+}
+
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+#color-picker {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#color_choice {
+    width: 100px;
+}
+
+button {
+    margin-bottom: 30px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.clear-container {
+    display: flex;
+    flex: 1;
+    padding-left: 55px;
+    width: 400px;
+   
+}
+
+.fa-solid{
+    padding-right: 7px;
+    padding-top: 4px;
+}
+
+#eraser {
+   margin-right: 50px;
+}
+
+.grid_title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+
+.grid-container button {
+    margin-bottom: 0;
+}
+
+#canvas {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
