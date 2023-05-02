@@ -28,7 +28,7 @@
             <div class="color-container">
                 <h2>Choose your color</h2>
                 <div id="color-picker">
-                    <input type="color" id="color_choice">
+                    <input type="color" value="#FD83AF" id="color_choice">
                 </div>
             
                 <button class="color_black">Black</button>
@@ -44,15 +44,14 @@
 
             <div class="grid_change">
                 <h2 class="grid_title">Grid Size</h2>
-                <div class="grid-container">
-                    <button class="size_button">5 X 5</button>
-                    <button class="size_button">8 X 8</button>
-                    <button class="size_button">10 X 10</button>
-                    <button class="size_button">20 X 20</button>
-                    <button class="size_button">30 X 30</button>
-                    <button class="size_button">40 X 40</button>
-                    <button class="size_button">50 X 50</button>
-                    <button class="size_button">64 X 64</button>
+                <div class="button-container">
+                    <button class="size_button size4">4 X 4</button>
+                    <button class="size_button size8">8 X 8</button>
+                    <button class="size_button size10">10 X 10</button>
+                    <button class="size_button size20">20 X 20</button>
+                    <button class="size_button size30">30 X 30</button>
+                    <button class="size_button size40">40 X 40</button>
+                    
 
                 </div>
             </div>
@@ -61,10 +60,10 @@
         
       
     
-        <div id="canvas"></div>
+        <div id="canvas" class="grid-container"></div>
     
     </div>
-   
+   <script src="script.js"></script>
 </body>
 
 

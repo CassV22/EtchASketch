@@ -95,11 +95,12 @@ button:hover {
     
 }
 
-.grid-container {
+.button-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    column-gap: 20px;
-    row-gap: 10px;
+    grid-template-columns: auto auto auto;
+    column-gap: 25px;
+    row-gap: 5px;
+    justify-content: center;
 }
 
 
@@ -108,9 +109,22 @@ button:hover {
 }
 
 #canvas {
+    --size: 4;
     width: 500px;
     height: 500px;
     border: 2px solid black;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: repeat(var(--size), 1fr);
+    grid-template-rows: repeat(var(--size), 1fr);
+    gap: 3px;
 }
+
+.pixel {
+    background-color: #fff; 
+   
+}
+
+
+    
