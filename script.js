@@ -2,9 +2,14 @@
 const gridContainer = document.getElementById("canvas");
 const buttons = document.querySelectorAll(".size_button");
 const color = document.getElementById("color_choice");
+const blackBtn = document.getElementById("black_btn");
+const multiColorBtn = document.getElementById("multiColor_btn");
+const eraseBtn = document.getElementById("eraser");
+const clearBtn = document.getElementById("clear");
 
 //defines draw so that the color change or drawing only works if draw is set to true
 let draw = false;
+let isClicked = false;
 
 //function creates the grid
 function gridMaker(size = 4) {
@@ -19,13 +24,37 @@ function gridMaker(size = 4) {
         div.addEventListener('mouseover', function() {
             if (!draw) return;
             div.style.backgroundColor = color.value;
+            if (isClicked == true) {
+                div.style.backgroundColor = '#000';
+            }
+            
+        });
+        
+        //need to toggle back to color.value if button is clicked a second time
+        div.addEventListener('mousedown', function() {            
+            div.style.backgroundColor = color.value;
+            if (isClicked == true) {
+                div.style.backgroundColor = '#000';
+            }
+            
         });
 
-        div.addEventListener('mousedown', function() {
-            div.style.backgroundColor = color.value;
-        });
+       
     }
 
+    //need to add event listener to listen for change in color so that black can change back to the color
+     //every div is turning black
+     blackBtn.addEventListener('click', function() {
+        isClicked = true;           
+    });
+
+    color.addEventListener('change', function() {
+        isClicked = false;
+    });
+
+    color.addEventListener('click', function() {
+        isClicked = false;
+    });
 }
 
 //event listeners so that draw works when the user clicks down on the mouse and stops working when they let go of the mouse
@@ -37,7 +66,6 @@ window.addEventListener('mouseup', function() {
     draw = false;
 });
 
-gridMaker(); //function call to set up default grid
 
 //function that adds event listeners to the buttons so that the size of the grid changes accordingly
 buttons.forEach(button => button.addEventListener('click', function() {
@@ -60,3 +88,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
    
 }));
 
+gridMaker(); //function call to set up default grid
