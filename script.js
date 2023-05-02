@@ -1,6 +1,10 @@
 //gets grid element
 const gridContainer = document.getElementById("canvas");
 const buttons = document.querySelectorAll(".size_button");
+const color = document.getElementById("color_choice");
+
+//defines draw so that the color change or drawing only works if draw is set to true
+let draw = false;
 
 //function creates the grid
 function gridMaker(size = 4) {
@@ -9,10 +13,29 @@ function gridMaker(size = 4) {
     for(i=0; i< size * size; i++){
         const div = document.createElement('div');
         div.classList.add('pixel');
-        gridContainer.appendChild(div);
+        gridContainer.appendChild(div);       
+
+        //event listeners so that the color changes/drawing works when the user clicks down on a div and continues to work as they mouseover the divs
+        div.addEventListener('mouseover', function() {
+            if (!draw) return;
+            div.style.backgroundColor = color.value;
+        });
+
+        div.addEventListener('mousedown', function() {
+            div.style.backgroundColor = color.value;
+        });
     }
 
 }
+
+//event listeners so that draw works when the user clicks down on the mouse and stops working when they let go of the mouse
+window.addEventListener('mousedown', function() {
+    draw = true;
+});
+
+window.addEventListener('mouseup', function() {
+    draw = false;
+});
 
 gridMaker(); //function call to set up default grid
 
@@ -36,3 +59,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
     }
    
 }));
+
