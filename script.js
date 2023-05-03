@@ -11,6 +11,7 @@ const clearBtn = document.getElementById("clear");
 let draw = false;
 let isBlack = false;
 let isMultiColor = false;
+let erase = false;
 
 //function creates the grid
 function gridMaker(size = 4) {
@@ -22,7 +23,7 @@ function gridMaker(size = 4) {
         gridContainer.appendChild(div);       
 
         //event listeners so that the color changes/drawing works when the user clicks down on a div and continues to work as they mouseover the divs
-        div.addEventListener('mouseover', function(multiBackground) {
+        div.addEventListener('mouseover', function() {
             if (!draw) return;
             div.style.backgroundColor = color.value;
             if (isBlack == true) {
@@ -31,11 +32,14 @@ function gridMaker(size = 4) {
             if(isMultiColor == true) {
                 div.style.backgroundColor = randomColors();
             }
+            if(erase == true) {
+                div.style.backgroundColor = '#fff';
+            }
             
         });
         
         //need to toggle back to color.value if button is clicked a second time
-        div.addEventListener('mousedown', function(multiBackground) {            
+        div.addEventListener('mousedown', function() {            
             div.style.backgroundColor = color.value;
             if (isBlack == true) {
                 div.style.backgroundColor = '#000';
@@ -43,8 +47,12 @@ function gridMaker(size = 4) {
             if(isMultiColor == true) {
                 div.style.backgroundColor = randomColors();
             }
+            if(erase == true) {
+                div.style.backgroundColor = '#fff';
+            }
         });
        
+        
     }
     
     //black button changes pixel color to black on click
@@ -58,14 +66,21 @@ function gridMaker(size = 4) {
         isMultiColor = true;
     });
 
+    //erase button restores pixel color to white on click
+    eraseBtn.addEventListener('click', function() {
+        erase = true;
+    })
+
     color.addEventListener('change', function() {
         isBlack = false;
         isMultiColor = false;
+        erase = false;
     });
 
     color.addEventListener('click', function() {
         isBlack = false;
         isMultiColor = false;
+        erase = false;
     });
 }
 
