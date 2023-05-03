@@ -9,7 +9,8 @@ const clearBtn = document.getElementById("clear");
 
 //defines draw so that the color change or drawing only works if draw is set to true
 let draw = false;
-let isClicked = false;
+let isBlack = false;
+let isMultiColor = false;
 
 //function creates the grid
 function gridMaker(size = 4) {
@@ -21,40 +22,62 @@ function gridMaker(size = 4) {
         gridContainer.appendChild(div);       
 
         //event listeners so that the color changes/drawing works when the user clicks down on a div and continues to work as they mouseover the divs
-        div.addEventListener('mouseover', function() {
+        div.addEventListener('mouseover', function(multiBackground) {
             if (!draw) return;
             div.style.backgroundColor = color.value;
-            if (isClicked == true) {
+            if (isBlack == true) {
                 div.style.backgroundColor = '#000';
+            }
+            if(isMultiColor == true) {
+                div.style.backgroundColor = randomColors();
             }
             
         });
         
         //need to toggle back to color.value if button is clicked a second time
-        div.addEventListener('mousedown', function() {            
+        div.addEventListener('mousedown', function(multiBackground) {            
             div.style.backgroundColor = color.value;
-            if (isClicked == true) {
+            if (isBlack == true) {
                 div.style.backgroundColor = '#000';
             }
-            
+            if(isMultiColor == true) {
+                div.style.backgroundColor = randomColors();
+            }
         });
-
        
     }
-
-    //need to add event listener to listen for change in color so that black can change back to the color
-     //every div is turning black
+    
+    //black button changes pixel color to black on click
      blackBtn.addEventListener('click', function() {
-        isClicked = true;           
+        isBlack = true;  
+        //need to add class to show button is down         
+    });
+
+    //multiColor button turns random colored on click
+    multiColorBtn.addEventListener('click', function() {
+        isMultiColor = true;
     });
 
     color.addEventListener('change', function() {
-        isClicked = false;
+        isBlack = false;
+        isMultiColor = false;
     });
 
     color.addEventListener('click', function() {
-        isClicked = false;
+        isBlack = false;
+        isMultiColor = false;
     });
+}
+
+function randomColors() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    console.log(r + ',' + g + ',' + b);
+
+    let multiBackground = `rgb(${r}, ${g}, ${b})`; 
+    console.log(multiBackground);
+    return multiBackground;
 }
 
 //event listeners so that draw works when the user clicks down on the mouse and stops working when they let go of the mouse
