@@ -74,8 +74,7 @@ button:hover {
 
 .clear-container {
     display: flex;
-    flex: 1;
-    padding-left: 55px;
+    flex: 1;    
     width: 400px;
    
 }
@@ -83,6 +82,7 @@ button:hover {
 .fa-solid{
     padding-right: 7px;
     padding-top: 4px;
+    padding-left: 135px;
 }
 
 #eraser {
@@ -126,5 +126,6 @@ button:hover {
    
 }
 
-
-    
+ .active {
+    border: 3px solid #FD83AF;
+ }

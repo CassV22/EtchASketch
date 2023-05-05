@@ -5,7 +5,7 @@ const color = document.getElementById("color_choice");
 const blackBtn = document.getElementById("black_btn");
 const multiColorBtn = document.getElementById("multiColor_btn");
 const eraseBtn = document.getElementById("eraser");
-const clearBtn = document.getElementById("clear");
+
 
 //defines draw so that the color change or drawing only works if draw is set to true
 let draw = false;
@@ -69,7 +69,8 @@ function gridMaker(size = 4) {
     //erase button restores pixel color to white on click
     eraseBtn.addEventListener('click', function() {
         erase = true;
-    })
+    });
+   
 
     color.addEventListener('change', function() {
         isBlack = false;
@@ -94,6 +95,7 @@ function randomColors() {
     console.log(multiBackground);
     return multiBackground;
 }
+
 
 //event listeners so that draw works when the user clicks down on the mouse and stops working when they let go of the mouse
 window.addEventListener('mousedown', function() {
