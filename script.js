@@ -1,4 +1,4 @@
-//gets grid element
+//variable definition for each element
 const gridContainer = document.getElementById("canvas");
 const buttons = document.querySelectorAll(".size_button");
 const color = document.getElementById("color_choice");
@@ -9,6 +9,7 @@ const eraseBtn = document.getElementById("eraser");
 
 //defines draw so that the color change or drawing only works if draw is set to true
 let draw = false;
+//defines states for each button so that on click they change to true and are applied as the color
 let isBlack = false;
 let isMultiColor = false;
 let erase = false;
@@ -38,7 +39,7 @@ function gridMaker(size = 4) {
             
         });
         
-        //need to toggle back to color.value if button is clicked a second time
+        //eventlistener so that the color change/drawing works when the user clicks down on a div and stops when they click again
         div.addEventListener('mousedown', function() {            
             div.style.backgroundColor = color.value;
             if (isBlack == true) {
@@ -71,7 +72,8 @@ function gridMaker(size = 4) {
         erase = true;
     });
    
-
+    /* event listeners so that the color picker works after user clicks on one of the button; need to fix this so that 
+     each button works after anything is clicked*/
     color.addEventListener('change', function() {
         isBlack = false;
         isMultiColor = false;
@@ -85,6 +87,7 @@ function gridMaker(size = 4) {
     });
 }
 
+//function to generate a random RGB for the multicolor button
 function randomColors() {
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
